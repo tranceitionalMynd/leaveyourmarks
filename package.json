@@ -1,0 +1,20 @@
+{
+  "name": "leave-the-marks",
+  "version": "1.0.0",
+  "description": "Text editor web service",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "tyler",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.16.0",
+    "chalk": "^1.1.3",
+    "ejs": "^2.5.5",
+    "express": "^4.14.1",
+    "express-session": "^1.15.0",
+    "mongoose": "^4.8.1"
+  }
+}

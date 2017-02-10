@@ -1,0 +1,16 @@
+exports.create=function(request, response) {
+
+    var user = new User();
+    user.username = request.body.username;
+    user.email = request.body.email;
+    user.password = request.body.password;
+
+    user.save(function(error, savedUser){
+        if (error) {
+            console.log("A user already exists with username " + self.username + " or email " + self.email);
+            res.render("register", {errorMessage: "A user already exists with that username or password."});
+            return;
+        request.session.newuser = savedUser.username;
+        response.render("new-user", {session:request.session});
+    });
+}
