@@ -1,16 +1,45 @@
-exports.create=function(request, response) {
+<!DOCTYPE html>
+<html lang="en">
 
-    var user = new User();
-    user.username = request.body.username;
-    user.email = request.body.email;
-    user.password = request.body.password;
+<head>
 
-    user.save(function(error, savedUser){
-        if (error) {
-            console.log("A user already exists with username " + self.username + " or email " + self.email);
-            res.render("register", {errorMessage: "A user already exists with that username or password."});
-            return;
-        request.session.newuser = savedUser.username;
-        response.render("new-user", {session:request.session});
-    });
-}
+    <title>Registration Successful !</title>
+    <% include partials/head.ejs %>
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <% include partials/sidebarMenu.ejs %>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                      <p align="center" class="headingFont">
+                        Leave your mark !!!
+                      </p>
+                      <br/><br/><br/>
+
+                   <blockquote class="mainLines">
+                  Congratulations <code><%=session.newuser%></code>, your account has been created successfully<br/>
+                  Please <a href="/login">login</a> to create your own story and share it with the world.
+                  </blockquote>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+      <% include partials/jsIncludes.ejs %>
+
+</body>
+
+</html>
