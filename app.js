@@ -13,7 +13,8 @@ express.use(static(__dirname + "/public/"));
 express.use(bodyParser.json());
 express.use(bodyParser.urlencoded({extended:false}));
 express.use(session({secret:"qazwsxedcrfvtgbyhnujm", resave: true, saveUninitialized: true}));
-express.use(function(request, result) {
+
+express.use(function(error, request, result, next) {
     console.log(chalk.red("Error: 404"));
     result.status(404).render("404");
 });
